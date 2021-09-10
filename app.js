@@ -2,23 +2,23 @@
 
 
 // Solution 1
-
+const allImg = document.querySelectorAll('.left-panel img')
 const maxImg = document.querySelector('.right-panel img');
 const select = document.querySelector('select');
 const allLang = ['en', 'ru', 'ua'];
 
-document.querySelectorAll('.left-panel img').forEach(item => item.onmouseenter = (event) => maxImg.src = event.target.src);
+allImg.forEach(i => (i.onmouseenter = (e) => (maxImg.src = e.target.src)));
 
-select.addEventListener('change', changeURLLanguage);
+select.addEventListener('change',()=> changeURLLang());
 
 // перенаправить на url с указанием языка
-function changeURLLanguage() {
+const changeURLLang = () => {
     let lang = select.value;
     location.href = window.location.pathname + '#' + lang;
     location.reload();
 }
 
-function changeLanguage() {
+const changeLang = () => {
     let hash = window.location.hash;
     hash = hash.substr(1);
     console.log(hash);
@@ -38,6 +38,6 @@ function changeLanguage() {
     }
 }
 
-changeLanguage();
+changeLang();
 
 // ! Explanation: 
